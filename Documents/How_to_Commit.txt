@@ -12,6 +12,19 @@ git add .
 Commit the files that you've staged in your local repository.
 git commit -m "First commit"
 
+#Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+
+
 # Commits the tracked changes and prepares them to be pushed to a remote repository. To remove this commit and modify the file, use 'git reset --soft HEAD~1' and commit and add the file again.
 Copy remote repository URL fieldAt the top of your GitHub repository's Quick Setup page, click  to copy the remote repository URL.
 
