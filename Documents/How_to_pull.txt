@@ -1,0 +1,2 @@
+--> git pull https://github.com/sam3ks/QuizApp
+This is used to pull the resources from git repo
