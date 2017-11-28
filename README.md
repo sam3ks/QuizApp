@@ -1,2 +1,2 @@
-# QuizApp
-Quiz Application
+# QuizMe App
+QuizMe Quiz Application
