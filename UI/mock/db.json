@@ -1,0 +1,71 @@
+{
+  "questions": 
+    [
+      {
+        "questionId": 123,
+        "questionDesc": "For which of the following disciplines is Nobel Prize awarded?",
+        "options": [
+          {
+            "optionId": "A",
+            "optionDesc": "Physics and Chemistry"
+          },
+          {
+            "optionId": "B",
+            "optionDesc": "Physiology or Medicine"
+          },
+          {
+            "optionId": "C",
+            "optionDesc": "Literature, Peace and Economics"
+          },
+          {
+            "optionId": "D",
+            "optionDesc": "All of the above"
+          }
+        ]
+      },
+      {
+        "questionId": 124,
+        "questionDesc": "Eritrea, which became the 182nd member of the UN in 1993, is in the continent of",
+        "options": [
+          {
+            "optionId": "A",
+            "optionDesc": "Asia"
+          },
+          {
+            "optionId": "B",
+            "optionDesc": "Africa"
+          },
+          {
+            "optionId": "C",
+            "optionDesc": "Europe"
+          },
+          {
+            "optionId": "D",
+            "optionDesc": "Australia"
+          }
+        ]
+      },
+      {
+        "questionId": 125,
+        "questionDesc": "The world’s first hybrid electric tram powered by hydrogen fuel cells has started in which country?",
+        "options": [
+          {
+            "optionId": "A",
+            "optionDesc": "Germany"
+          },
+          {
+            "optionId": "B",
+            "optionDesc": "China"
+          },
+          {
+            "optionId": "C",
+            "optionDesc": "France"
+          },
+          {
+            "optionId": "D",
+            "optionDesc": "Australia"
+          }
+        ]
+      }
+    ]
+  }
