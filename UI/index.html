@@ -11,6 +11,12 @@
 
     <!--  CSS for custom styles    -->
     <link href="css/styles.css" rel="stylesheet" />
+
+    <script src="js/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/constants.js"></script>  
+    <script src="js/questionsController.js"></script>
+
 </head>
 
 <body>
@@ -49,11 +55,11 @@
     </main>
 
     <div class="container" ng-controller="quizController">
-        <nav aria-label="..." ng-show="showProgressBar">
+        <nav aria-label="..." ng-show="showProgressBar" ng-cloak>
             <ul class="pagination pagination-lg">
 
                 <li ng-class="currentQuestion.activeQuestion ? 'page-item disabled' : 'page-item'" ng-repeat="currentQuestion in questionsList">
-                    <a class="page-link" href="#" ng-click="loadCurrentQuestion($index)">{{$index +1}}</a>
+                    <a class="page-link" href="#" ng-click="loadCurrentQuestion($index)" ng-cloak>{{$index +1}}</a>
                 </li>
             </ul>
         </nav>
@@ -65,48 +71,48 @@
             </div>
             <div class="col-md-1 column">
             </div>
-            <div class="col-md-10 column" ng-cloak>
-                <div id="completionStatus" ng-show="showProgressBar">
-                    <p class="lead">Total no. of Questions {{totalNumberOfQuestions}}, No. of Questions Answered {{numberOfQuestionsAnswered}},
+            <div class="col-md-10 column" >
+                <div id="completionStatus" ng-show="showProgressBar" ng-cloak>
+                    <p class="lead" ng-cloak>Total no. of Questions {{totalNumberOfQuestions}}, No. of Questions Answered {{numberOfQuestionsAnswered}},
                         Completed {{completionPecentage|number:2}}%</p>
                     <div class="progress">
                         <div class="progress-bar" role="progressbar" style="width: {{completionPecentage}}%">
-                            <span class="sr-only">Completed {{completionPecentage}}%</span>
+                            <span class="sr-only" ng-cloak>Completed {{completionPecentage}}%</span>
                         </div>
                     </div>
                 </div>
                 <div class="panel panel-primary" ng-model="currentQuestion" ng-show="quizStarted || quizCompleted">
                     <div id="QuestionHeader" ng-hide="quizCompleted">
                         <div class="panel-heading">
-                            <h3 class="panel-title">
+                            <h3 class="panel-title" ng-cloak>
                                 {{currentQuestion.questionDesc}}
                             </h3>
                         </div>
                         <div class="panel-body" ng-repeat="option in currentQuestion.options">
                             <div class="radio">
-                                <label>
+                                <label ng-cloak>
                                 <input type="radio" name="optionsRadios" id="{{option.optionId}}" value="{{option.optionId}}"> {{option.optionDesc}}
-                            </label>
+                                </label>
                             </div>
                         </div>
                     </div>
-                    <div id="QuestionFooter" class="panel-footer" ng-show="showProgressBar">
-                        <a href="#" class="btn" ng-click="previousQuestion()" role="button" ng-hide="quizCompleted">previous</a>
+                    <div id="QuestionFooter" class="panel-footer" ng-show"showProgressBar" ng-cloak>
+                        <a href="#" class="btn btn-info" ng-click="previousQuestion()" role="button" ng-hide="quizCompleted">Previous</a>
                         <a href="#" class="btn btn-primary " ng-click="submitAnswer()" role="button" ng-hide="quizCompleted">Next</a>
                         <a href="#" class="btn btn-primary " ng-click="submitQuiz()" role="button" ng-show="quizCompleted">Submit</a>
                     </div>
                 </div>
-                <div class="panel" ng-repeat="currentQuestion in questionsList" ng-show="quizDisplayResults">
+                <div class="panel" ng-repeat="currentQuestion in questionsList" ng-show="quizDisplayResults" ng-cloak>
                     <div id="QuestionHeader">
                         <div class="panel-heading">
-                            <h3 class="panel-title">
+                            <h3 class="panel-title" ng-cloak>
                                 {{currentQuestion.questionDesc}}
                             </h3>
                         </div>
                         <div class="panel-body" ng-repeat="option in currentQuestion.options">
                             <div class="radio">
                                 <label>
-                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="{{option.optionId}}" > {{option.optionDesc}}
+                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="{{option.optionId}}" ng-cloak> {{option.optionDesc}}
                             </label>
                             </div>
                         </div>
@@ -123,13 +129,11 @@
             <span class="text-muted">QuizMe footer.</span>
         </div>
     </footer>
-    <!-- <script src="js/jquery.min.js"></script> 
+    <script src="js/jquery.min.js"></script> 
     <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.js"></script>-->
-    <script src="js/angular.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/questionsController.js"></script>
+    <script src="js/bootstrap.js"></script>
     <script src="js/custom.js"></script>
+
 </body>
 
 </html>

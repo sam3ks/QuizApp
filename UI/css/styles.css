@@ -40,3 +40,9 @@ code {
 #QuestionFooter{
   margin-top:10px;
 }
+
+
+/* fix to resolve ngHide ngShow flickering problem */
+.ng-hide.ng-hide-animate {
+  display: none !important;
+}

@@ -1,6 +1,6 @@
 (function () {
     angular.module('quizModule')
-        .controller('quizController', function ($scope, $http) {
+        .controller('quizController',['$scope', '$http','endPoints', function ($scope,$http,endPoints) {
 
             $scope.currentQuestion = {};
             $scope.totalNumberOfQuestions = 0;
@@ -65,7 +65,7 @@
             $scope.fetchQuestions = fetchQuestions;
             $scope.startQuiz = startQuiz;
             function fetchQuestions() {
-                var API_URL = 'http://localhost:3000/questions';
+                var API_URL = endPoints.FETCH_QUESTIONS_LIST;
                 $http.get(API_URL).then(function (response) {
                     console.log(response);
                     $scope.questionsList = response.data;
@@ -103,6 +103,6 @@
                 //reset();
 
             }
-        });
+        }]);
 })();
 
