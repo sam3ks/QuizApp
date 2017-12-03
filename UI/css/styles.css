@@ -46,3 +46,15 @@ code {
 .ng-hide.ng-hide-animate {
   display: none !important;
 }
+
+.answered{
+    border-bottom: 7px solid green;
+}
+
+.unanswered{
+    border-bottom: 7px solid red;
+}
+
+.currentQuestion{
+    border-top: 2px solid black;
+}

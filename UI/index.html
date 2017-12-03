@@ -26,7 +26,7 @@
             <a class="navbar-brand" href="#">QuizMe</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
                 aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
         </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
@@ -57,10 +57,11 @@
     <div class="container" ng-controller="quizController">
         <nav aria-label="..." ng-show="showProgressBar" ng-cloak>
             <ul class="pagination pagination-lg">
-
-                <li ng-class="currentQuestion.activeQuestion ? 'page-item disabled' : 'page-item'" ng-repeat="currentQuestion in questionsList">
+                <li class="page-item" ng-class="firstQuestion ? 'page-item disabled': 'page-item'" ><a class="page-link" href="#" ng-click="previousQuestion()">Previous</a></li>  
+                <li ng-class="[currentQuestion.activeQuestion ? 'page-item disabled currentQuestion' : 'page-item', currentQuestion.answered ? 'answered' :'unanswered']" ng-repeat="currentQuestion in questionsList">
                     <a class="page-link" href="#" ng-click="loadCurrentQuestion($index)" ng-cloak>{{$index +1}}</a>
                 </li>
+                <li class="page-item" ng-class="lastQuestion ? 'page-item disabled': 'page-item'"><a class="page-link" href="#" ng-click="nextQuestion()">Next</a></li>  
             </ul>
         </nav>
         <div>
@@ -91,14 +92,12 @@
                         <div class="panel-body" ng-repeat="option in currentQuestion.options">
                             <div class="radio">
                                 <label ng-cloak>
-                                <input type="radio" name="optionsRadios" id="{{option.optionId}}" value="{{option.optionId}}"> {{option.optionDesc}}
+                                <input type="radio" name="option.selectedOption" id="{{option.optionId}}" value="{{option.optionId}}" ng-click="submitAnswer(option.optionId)"> {{option.optionDesc}}
                                 </label>
                             </div>
                         </div>
                     </div>
                     <div id="QuestionFooter" class="panel-footer" ng-show"showProgressBar" ng-cloak>
-                        <a href="#" class="btn btn-info" ng-click="previousQuestion()" role="button" ng-hide="quizCompleted">Previous</a>
-                        <a href="#" class="btn btn-primary " ng-click="submitAnswer()" role="button" ng-hide="quizCompleted">Next</a>
                         <a href="#" class="btn btn-primary " ng-click="submitQuiz()" role="button" ng-show="quizCompleted">Submit</a>
                     </div>
                 </div>
