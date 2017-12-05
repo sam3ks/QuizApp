@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+<meta charset="ISO-8859-1">
+<title>{{title}}</title>
+<script src="js/angular.js"></script>
+
+<link rel="stylesheet" href="css/bootstrap.css">
+<link href="css/styles.css" rel="stylesheet" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+
+	<div class="container" ng-controller="LoginController">
+		<div class="row">
+			<div class="col-md-6 offset-md-3">
+				<div class="card text-center" id="signUp">
+					<div class="card-header">
+						<ul class="nav nav-tabs card-header-tabs">
+							<li class="nav-item"><a ng-class="hideLogin?'nav-link':'nav-link active'" ng-click="login()" href="#" id="login-form-link">Login</a></li>
+							<li class="nav-item"><a ng-class="hideLogin?'nav-link active':'nav-link'" ng-click="signUp()" href="#" id="register-form-link">Sign
+									Up</a></li>
+						</ul>
+					</div>
+					<div class="card-block" ng-hide="hideSignUp" id="register-form">
+						<div class="row">
+							<div class="col-lg-12">
+								<h4 class="card-title">Create a new account</h4>
+								<p class="card-text">
+								<form action="">
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-4">
+												<label for="userName">User Name</label>
+											</div>
+											<div class="col-md-8">
+												<input class="form-control" id="userName" type="text"
+													ng-model="userName">
+											</div>
+
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-4">
+												<label for="userId">Email Id or Mobile No</label>
+											</div>
+											<div class="col-md-8">
+												<input class="form-control" id="userId" type="text"
+													ng-model="userId">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-4">
+												<label for="password">Password</label>
+											</div>
+											<div class="col-md-8">
+												<input class="form-control" id="password" type="text"
+													ng-model="password">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<input class="btn btn-primary" ng-click="signUp()"
+											type="button" value="Sign Up">
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="card-block" ng-hide="hideLogin" id="login-form">
+						<div class="row">
+							<div class="col-lg-12">
+								<h4 class="card-title">Login</h4>
+								<p class="card-text">
+								<form action="">
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-4">
+												<label for="userId">Email Id or Mobile No</label>
+											</div>
+											<div class="col-md-8">
+												<input class="form-control" id="userId" type="text"
+													ng-model="userId">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-4">
+												<label for="password">Password</label>
+											</div>
+											<div class="col-md-8">
+												<input class="form-control" id="password" type="text"
+													ng-model="password">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<input class="btn btn-primary" ng-click="signUp()"
+											type="button" value="Sign Up">
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<script>
+		angular.module('MyApp', []).controller('LoginController',
+				function($scope) {
+			$scope.$parent.title = "Login";
+			$scope.hideSignUp = true;
+			$scope.hideLogin = false;
+			$scope.login = function(){
+				$scope.$parent.title = "Login";
+				$scope.hideSignUp = true;
+				$scope.hideLogin = false;
+			};
+			$scope.signUp = function(){
+				$scope.$parent.title = "Sign Up";
+				$scope.hideSignUp = false;
+				$scope.hideLogin = true;
+			};
+					
+				});
+	</script>
+</body>
+</html>
